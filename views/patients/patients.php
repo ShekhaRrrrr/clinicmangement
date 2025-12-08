@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 require "../../dbconfig/dbconfig.php";
 include "../partials/header.php";
 
-$result = mysqli_query($conn, "SELECT * FROM doctors ORDER BY doctor_id DESC");
+$result = mysqli_query($conn, "SELECT * FROM patients ORDER BY patient_id DESC");
 ?>
 
 <!-- Landing Page Hero Section -->
@@ -40,17 +40,17 @@ $result = mysqli_query($conn, "SELECT * FROM doctors ORDER BY doctor_id DESC");
 
     <!-- Hero Section -->
     <div class="hero shadow">
-        <h1>Our Doctors</h1>
-        <p>Your health is our priority. Meet our qualified and experienced medical professionals.</p>
-        <a href="doctor_add.php" class="btn btn-lg btn-primary mt-3">
-            <i class="bi bi-person-plus"></i> Add New Doctor
+        <h1>Patient List </h1>
+        <p>List of the patients.</p>
+        <a href="patient_add.php" class="btn btn-lg btn-primary mt-3">
+            <i class="bi bi-person-plus"></i> Add New Patient
         </a>
     </div>
 
-    <!-- Doctors Table Section -->
+    <!-- Patient Table Section -->
     <div class="card shadow-sm border-0 mb-5">
         <div class="card-header py-3 bg-primary text-white">
-            <h4 class="mb-0">Doctors Directory</h4>
+            <h4 class="mb-0">Patient List</h4>
         </div>
 
         <div class="card-body p-0">
@@ -59,9 +59,10 @@ $result = mysqli_query($conn, "SELECT * FROM doctors ORDER BY doctor_id DESC");
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Department</th>
-                        <th>Qualifications</th>
+                        <th>Age</th>
+                        <th>Gender</th>
                         <th>Phone</th>
+                        <th>Address</th>
                         <th class="text-center" style="width: 160px;">Actions</th>
                     </tr>
                 </thead>
@@ -69,21 +70,22 @@ $result = mysqli_query($conn, "SELECT * FROM doctors ORDER BY doctor_id DESC");
                 <tbody>
                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
-                        <td><?= $row['doctor_id']; ?></td>
+                        <td><?= $row['patient_id']; ?></td>
                         <td class="fw-semibold"><?= $row['name']; ?></td>
-                        <td><?= $row['department']; ?></td>
-                        <td><?= $row['qualifications']; ?></td>
+                        <td><?= $row['age']; ?></td>
+                        <td><?= $row['gender']; ?></td>
                         <td><?= $row['phone']; ?></td>
+                        <td><?= $row['address']; ?></td>
 
                         <td class="text-center">
-                            <a href="doctor_edit.php?doctor_id=<?= $row['doctor_id']; ?>" 
+                            <a href="patient_edit.php?patient_id=<?= $row['patient_id']; ?>" 
                                class="btn btn-outline-warning btn-sm me-1">
                                 <i class="bi bi-pencil"></i>
                             </a>
 
-                            <a href="../../actions/doctors/delete.php?doctor_id=<?= $row['doctor_id']; ?>" 
+                            <a href="../../actions/patient/delete.php?patient_id=<?= $row['patient_id']; ?>" 
                                class="btn btn-outline-danger btn-sm"
-                               onclick="return confirm('Delete this doctor?');">
+                               onclick="return confirm('Delete this patient?');">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
