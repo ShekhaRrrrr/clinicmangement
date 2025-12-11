@@ -1,8 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors',1);
 require '../../dbconfig/dbconfig.php';
 
 $patient_id = $_POST['patient_id'];
-$appointment_id = $_POST['appointment_id'];
 $doctor_id = $_POST['doctor_id'];
 $appointment_date = $_POST['appointment_date'];
 $appointment_time = $_POST['appointment_time'];
@@ -43,8 +44,8 @@ if (mysqli_fetch_assoc($q2)['c'] >= 5) {
 //inserting the appointment
 
 $sql = "INSERT INTO appointments 
-(patient_id, appointment_id, doctor_id, appointment_date, appointment_time, description) 
-VALUES ($patient_id, $appointment_id, $doctor_id, '$appointment_date', '$appointment_time', '$description')";
+(patient_id, doctor_id, appointment_date, appointment_time, description) 
+VALUES ($patient_id, $doctor_id, '$appointment_date', '$appointment_time', '$description')";
 
 $result=mysqli_query($conn,$sql);
 if(!$result){
@@ -53,6 +54,6 @@ if(!$result){
 
 
 
-header("Location: ../../views/appointments.php");
+header("Location: ../../views/appointment/appointments.php");
 exit;
 ?>

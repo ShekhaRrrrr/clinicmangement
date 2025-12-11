@@ -64,7 +64,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../appointments/appointments.php">
+                    <a class="nav-link" href="../appointment/appointments.php">
                         <i class="bi bi-calendar-check"></i> Appointments
                     </a>
                 </li>
