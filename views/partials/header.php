@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Clinic Management System</title>
 
-    <!-- Bootstrap -->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
-    <!-- Bootstrap Icons -->
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <style>
@@ -36,18 +36,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top mb-4">
     <div class="container">
 
-        <!-- Brand -->
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-            <i class="bi bi-hospital"></i> 
+        
+        <a class="navbar-brand d-flex align-items-center gap-2" href="http://127.0.0.1:5500/index.html">
+            <i class="bi bi-hospital"></i>  
             Clinic System
         </a>
 
-        <!-- Hamburger Button -->
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clinicNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menu -->
+        
         <div class="collapse navbar-collapse" id="clinicNav">
             <ul class="navbar-nav ms-auto">
 
