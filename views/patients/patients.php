@@ -1,11 +1,10 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+require "../../actions/auth/middleware.php";
+requireAuth('user');
 require "../../dbconfig/dbconfig.php";
 include "../partials/header.php";
-
-$result = mysqli_query($conn, "SELECT * FROM patients ORDER BY patient_id DESC");
+$user_id=$_SESSION['user_id'];
+$result = mysqli_query($conn, "SELECT * FROM patients WHERE user_id= $user_id ORDER BY patient_id DESC");
 ?>
 
 <!-- Landing Page Hero Section -->

@@ -1,9 +1,13 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require "../../actions/auth/middleware.php";
+requireAuth('user');
 
 require "../../dbconfig/dbconfig.php";
 include "../partials/header.php";
+
+$user_id = $_SESSION['user_id'];
+
+// FIXED: user_id=$user_id (not $user_id=user_id)
 
 $result = mysqli_query($conn, "SELECT * FROM doctors ORDER BY doctor_id DESC");
 ?>

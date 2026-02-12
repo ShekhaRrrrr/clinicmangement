@@ -1,4 +1,6 @@
 <?php
+require "../../actions/auth/middleware.php";
+requireAuth('user');
 require'../../dbconfig/dbconfig.php';
 $patient_id=$_GET['patient_id'];
 $sql="DELETE FROM patients where patient_id=$patient_id";

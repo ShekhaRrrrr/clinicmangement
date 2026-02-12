@@ -1,7 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
+require "../../actions/auth/middleware.php";
+requireAuth('user');
 include "../partials/header.php";
 ?>
 

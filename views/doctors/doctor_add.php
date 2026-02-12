@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require "../../actions/auth/middleware.php";
+requireAuth('user');
 
 include "../partials/header.php";
 ?>
@@ -25,7 +25,7 @@ include "../partials/header.php";
 
     <div class="mb-2">
         <label class="form-label">Phone:</label>
-        <input type="text" name="phone" class="form-control" required>
+        <input type="number" name="phone" class="form-control" required>
     </div>
 
     <button type="submit" class="btn btn-success">Add Doctor</button>

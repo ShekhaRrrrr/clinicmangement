@@ -12,7 +12,6 @@ $doctor_id = $_POST['doctor_id'];
 $appointment_date = $_POST['appointment_date'];
 $appointment_time = $_POST['appointment_time'];
 $description = $_POST['description'];
-
 $sql="UPDATE appointments
       SET patient_id='$patient_id',
        

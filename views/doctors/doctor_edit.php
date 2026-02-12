@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require "../../actions/auth/middleware.php";
+requireAuth('user');
 
 require "../../dbconfig/dbconfig.php";
 $doctor_id = $_GET['doctor_id'];
@@ -36,7 +36,7 @@ include "../partials/header.php";
         <input type="text" name="phone" value="<?= $doctor['phone']; ?>" class="form-control" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Update Doctor</button>
+    <button type="submit" class="btn btn-primary" >Update Doctor</button>
     <a href="doctors.php" class="btn btn-secondary">Back</a>
 </form>
 

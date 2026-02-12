@@ -1,13 +1,15 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Clinic Management System</title>
 
-    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-
-   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <style>
@@ -36,23 +38,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top mb-4">
     <div class="container">
 
-        
-        <a class="navbar-brand d-flex align-items-center gap-2" href="http://127.0.0.1:5500/index.html">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
             <i class="bi bi-hospital"></i>  
             Clinic System
         </a>
 
-        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#clinicNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        
         <div class="collapse navbar-collapse" id="clinicNav">
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../doctor/doctors.php">
+                    <a class="nav-link" href="../doctors/doctors.php">
                         <i class="bi bi-person-badge"></i> Doctors
                     </a>
                 </li>
@@ -69,10 +68,22 @@
                     </a>
                 </li>
 
+                <!-- User Info & Logout -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle"></i> <?= $_SESSION['username']; ?>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="../../actions/auth/logout.php">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
 
     </div>
 </nav>
 
-<div class="container">
+<div class="container"></div>
